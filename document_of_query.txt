@@ -1,0 +1,382 @@
+1. create city :
+
+    query:
+
+        mutation{
+            createCity(city:"city name")
+            {
+                city{
+                    id,
+                    city
+                }
+            }
+        }
+
+
+
+    response:
+
+        {
+            "data": {
+                "createCity": {
+                "city": {
+                    "id": "30",
+                    "city": "city name"
+                }
+                }
+            }
+        }
+
+
+2. update city:
+
+    query: 
+        mutation{
+            updateCity(
+            id:24,
+            city:"city name"
+            )
+            {
+                city{
+                    id,
+                    city
+                }
+            }
+        }
+    
+    response:
+
+        {
+            "data": {
+                "updateCity": {
+                "city": {
+                    "id": "24",
+                    "city": "dedede"
+                }
+                }
+            }
+        }
+
+
+3. delete city:
+
+    query:
+        mutation{
+            deleteCity(id:30){
+                msg
+            }
+        }
+
+    response:
+        {
+            "data": {
+                "deleteCity": {
+                    "msg": "City deleted"
+                }
+            }
+        }
+
+4. get all city in list:
+
+    query:
+        {
+            allCity{
+                id,
+                city
+            }
+        }
+
+    response:
+
+        {
+            "data": {
+                "allCity": [
+                    {
+                        "id": "1",
+                        "city": "surat"
+                    },
+                    {
+                        "id": "2",
+                        "city": "ahmdabad"
+                    },
+                    {
+                        "id": "3",
+                        "city": "bharuch"
+                    },
+                    {
+                        "id": "4",
+                        "city": "mumbai"
+                    },
+                    {
+                        "id": "5",
+                        "city": "jamanagar"
+                    }
+                ]
+            }
+        }
+
+
+5. get city by id:
+
+    qurey:
+        {
+            cityById(id:"5"){
+                id,
+                city
+            }
+        }
+
+    response:
+        {
+            "data": {
+                "cityById": {
+                "id": "24",
+                "city": "jamanagar"
+                }
+            }
+        }
+
+6. create component 
+
+    qurey:
+        mutation{
+            createRecord(
+                company:"bmw",
+                description:"the best sudan ",
+                cityId:[
+                {id:1},
+                {id:2}
+                ]
+            ){
+                component{
+                id,
+                company,
+                description,
+                city{
+                    id,
+                    city
+                }
+                }
+            }
+        }
+
+    response:
+        {
+            "data": {
+                "createRecord": {
+                "component": {
+                    "id": "1",
+                    "company": "bmw",
+                    "description": "the best sudan ",
+                    "city": [
+                    {
+                        "id": "1",
+                        "city": "bharuch"
+                    },
+                    {
+                        "id": "2",
+                        "city": "mumbai"
+                    }
+                    ]
+                }
+                }
+            }
+        }
+
+
+7. update component
+
+    query:
+        mutation{
+            updateRecord(
+                id:1,
+                company:"bmw",
+                description:"the best sudan and most popular",
+                cityId:[
+                {id:1},
+                {id:2}
+                ]
+            ){
+                component{
+                id,
+                company,
+                description,
+                city{
+                    id,
+                    city
+                }
+                }
+            }
+        }
+
+    response:
+        {
+            "data": {
+                "updateRecord": {
+                "component": {
+                    "id": "1",
+                    "company": "bmw",
+                    "description": "the best sudan and most popular",
+                    "city": [
+                    {
+                        "id": "1",
+                        "city": "bharuch"
+                    },
+                    {
+                        "id": "2",
+                        "city": "mumbai"
+                    }
+                    ]
+                }
+                }
+            }
+        }
+
+8. delete component:
+
+    query:
+        mutation{
+            deleteRecord(id:1){
+                msg
+            }
+        }
+
+    response:
+        {
+            "data": {
+                "deleteRecord": {
+                    "msg": "Component delete"
+                }
+            }
+        }
+
+9. all component:
+
+    query:
+
+        {
+            allComponent{
+                id,
+                company,
+                description,
+                city{
+                id,
+                city
+                }
+            }
+        }
+
+    response:
+        {
+  "data": {
+    "allComponent": [
+        {
+                "id": "1",
+                "company": "bmw",
+                "description": "the best sudan and most popular",
+                "city": [
+                {
+                    "id": "1",
+                    "city": "bharuch"
+                },
+                {
+                    "id": "2",
+                    "city": "mumbai"
+                }
+                ]
+            },
+            {
+                "id": "2",
+                "company": "audi",
+                "description": "the best car",
+                "city": [
+                {
+                    "id": "2",
+                    "city": "bharuch"
+                },
+                {
+                    "id": "3",
+                    "city": "mumbai"
+                }
+                ]
+            }
+        ]   
+        }
+    }
+
+10. get component by id:
+    query:
+
+        {
+            componentById(id:"1"){
+                id,
+                company,
+                description,
+                city{
+                id,
+                city
+                }
+            }
+        }
+
+    response:
+        {
+            "data": {
+                "componentById": {
+                "id": "1",
+                "company": "bmw",
+                "description": "the best sudan and most popular",
+                "city": [
+                {
+                    "id": "1",
+                    "city": "bharuch"
+                },
+                {
+                    "id": "2",
+                    "city": "mumbai"
+                }
+                ]
+                }
+            }
+        }
+
+
+11. selected city delete:
+
+    qurey:
+        mutation{
+            selectCityDelete(cityId:[{id:21},{id:24}]){
+                msg
+            }
+        }
+
+    response:
+
+        {
+            "data": {
+                "selectCityDelete": {
+                "msg": "All Selected Cite Deleted."
+                }
+            }
+        }
+
+
+12. selected component delete:
+
+    qurey:
+
+        mutation{
+            selectComponentDelete(componentId:[{id:12},{id:13}]){
+                msg
+            }
+        }
+
+    response:
+
+    {
+        "data": {
+            "selectComponentDelete": {
+                "msg": "All Selected Components Deleted."
+            }
+        }
+    }
